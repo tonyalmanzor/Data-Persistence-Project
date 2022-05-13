@@ -43,4 +43,11 @@ public class MenuUIHandler : MonoBehaviour
                 Application.Quit(); // original code to quit Unity player
         #endif
     }
+
+    public void UpdateScore()
+    {
+        bestScore = DataManager.dataManagerInstance.GetBestScore();
+        bestScoreName = DataManager.dataManagerInstance.GetBestScoreName();
+        scoreText.text = "Best Score: " + bestScoreName + " - " + bestScore;
+    }
 }

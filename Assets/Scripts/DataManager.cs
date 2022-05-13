@@ -5,6 +5,7 @@ using System.IO;
 
 public class DataManager : MonoBehaviour
 {
+    [SerializeField] private MenuUIHandler menuUI;
     public static DataManager dataManagerInstance;
 
     int bestScore;
@@ -96,5 +97,13 @@ public class DataManager : MonoBehaviour
             bestScoreName = data.playerName;
             bestScore = data.playerScore;
         }
+    }
+
+    public void DeleteData()
+    {
+        string path = Application.persistentDataPath + "/savefile.json";
+        File.Delete(path);
+        bestScore = 0;
+        bestScoreName = "";
     }
 }
